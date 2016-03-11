@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>D3安装及使用</title>
+    <script src="d3.js"></script>
+</head>
+
+<body>
+    <script>
+    var width = 400; //画布宽
+    var height = 400; //画布高
+    var svg = d3.select('body')
+        .append('svg') //添加svg元素，append函数返回一个选择集！
+        .attr('width', width) //设置宽
+        .attr('height', height); //设置高
+
+    svg.append('circle') //添加一个圆形
+        .attr('cx', '150px') //圆心的x坐标
+        .attr('cy', '150px') //圆心的y坐标
+        .attr('r', '100px') //圆的半径
+        .attr('fill', '#F25C5E') //填充颜色
+    </script>
+</body>
+
+</html>
