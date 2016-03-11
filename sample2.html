@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<title>D3安装及使用</title>
-	<script src="d3.js"></script>
+    <meta charset="UTF-8">
+    <title>D3安装及使用</title>
+    <script src="d3.js"></script>
 </head>
+
 <body>
-	<p>cat</p>
-	<p>dog</p>
-	<script>
-		d3.select('body')//选择body元素
-		.selectAll('p')//选择body元素中的所有p元素
-		.text('Hello World');//修改文字
-	</script>
+    <p>cat</p>
+    <p>dog</p>
+    <script>
+    var p = d3.select('body') //选择body元素
+        .selectAll('p') //选择body元素中的所有p元素
+        .text('Hello World'); //修改文字
+    p.style('color', 'red');
+    p.style('font-size', '74px');
+    </script>
 </body>
+
 </html>
