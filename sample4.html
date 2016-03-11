@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>柱状图制作</title>
+    <script src="d3.js"></script>
+</head>
+
+<body>
+    <script>
+    var width = 400; //画布宽
+    var height = 400; //画布高
+    var dataset = [50, 43, 120, 87, 99, 167, 142];
+    var svg = d3.select('body')
+        .append('svg')
+        .attr('width', width)
+        .attr('height', height);
+    //定义上下左右的边距
+    var padding = {
+        top: 20,
+        right: 20,
+        bottom: 20,
+        left: 20
+    };
+    //矩形所占的宽度，包括空白，单位为像素
+    var rectStep = 35;
+    //矩形所占的宽度(不包括空白),单位为像素
+    var rectWidth = 30;
+    var rect = svg.selectAll('rect')
+        .data(dataset) //绑定数据
+        .enter() //获取enter部分
+        .append('rect') //添加rect元素，使其与绑定数组的长度一致
+        .attr('fill', 'steelblue')
+        .attr('x', function(d, i) { //设置矩形的x坐标
+            return padding.left + i * rectStep;
+        })
+        .attr('y', function(d, i) { //设置矩形的y坐标
+            return height - padding.bottom - d;
+        })
+        .attr('width', rectWidth)
+        .attr('height', function(d, i) {
+            return d;
+        });
+    var text = svg.selectAll('text')
+        .data(dataset)
+        .enter()
+        .append('text')
+        .attr('fill', 'white')
+        .attr('font-size', '14px')
+        .attr('text-anchor', 'middle')
+        .attr('x', function(d, i) {
+            return padding.left + i * rectStep;
+        })
+        .attr('y', function(d, i) {
+            return height - padding.bottom - d;
+        })
+        .attr('dx', rectWidth / 2)
+        .attr('dy', '1em')
+        .text(function(d, i) {
+            return d;
+        })
+    </script>
+</body>
+
+</html>
